@@ -2,21 +2,17 @@
   "name": "yew-parcel-starter",
   "version": "1.0.0",
   "description": "yew & parcel ",
-  "main": "bootstrap.js",
   "repository": "https://github.com/yuntianwangchuimoqingchi/yew-parcel-starter.git",
   "author": "还不如一只猪威武 <liamxin@yeah.net>",
   "license": "MIT",
   "scripts": {
-    "dev": "rm -rf dist && WASM_PACK_PROFILE=dev parcel bootstrap.js -p 8000 --open",
-    "build": "rm -rf dist && WASM_PACK_PROFILE=release parcel build bootstrap.js --no-content-hash --public-url ./"
-  },
-  "staticFiles": {
-    "staticPath": "static",
-    "watcherGlob": "**"
+    "dev": "rm -fr dist && WASM_PACK_PROFILE=dev parcel static/index.html -p 8000 --open",
+    "build": "rm -rf dist && WASM_PACK_PROFILE=release parcel build static/index.html parcel build entry.js --no-content-hash --public-url ./",
+    "test": "wasm-pack test --headless --chrome"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
-    "parcel-plugin-static-files-copy": "^2.5.0",
-    "parcel-plugin-wasm.rs": "^1.2.16"
+    "parcel-plugin-wasm.rs": "^1.2.16",
+    "typescript": "^4.1.2"
   }
 }

@@ -19,8 +19,6 @@ yarn
 yarn dev
 ```
 
->you need add `index.hml` to url
-
 ## build
 
 ```ssh

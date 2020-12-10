@@ -1,5 +1,5 @@
-use wasm_bindgen::prelude::wasm_bindgen;
 use yew::prelude::*;
+use yew::services::ConsoleService;
 
 pub struct App {
     link: ComponentLink<Self>,
@@ -23,7 +23,9 @@ impl Component for App {
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::Click => run_js_fun(),
+            Msg::Click => {
+                ConsoleService::log("print in js console!");
+            },
         }
         true
     }
@@ -38,10 +40,4 @@ impl Component for App {
             </div>
         }
     }
-}
-
-// use js_call_back
-#[wasm_bindgen]
-extern "C" {
-    fn run_js_fun();
 }
